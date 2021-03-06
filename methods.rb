@@ -1,17 +1,12 @@
-def select_plan
-  puts <<~TEXT
-       旅行プランを選択して下さい。
-       1. 沖縄旅行（10000円）
-       2. 北海道旅行（20000円）
-       3. 九州旅行（15000円）
-     TEXT
+def show_plans(plans)
+  puts "旅行プランを選択してください"
 
-  plans = [
-    { place: "沖縄", price: 10000 },
-    { place: "北海道", price: 20000 },
-    { place: "九州", price: 15000 }
-  ]
+  plans.each.with_index do |plan, index|
+    puts "#{index}.#{plan[:place]}旅行(#{plan[:price]}円)"
+  end
+end
 
+def select_plan(plans)
   while true do
     print "プランの番号を選択  >  "
     plan_number = gets.to_i
