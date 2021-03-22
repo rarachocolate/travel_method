@@ -1,7 +1,7 @@
 def show_plans(plans)
   puts "旅行プランを選択してください"
 
-  plans.each.with_index do |plan, index|
+  plans.each.with_index(1) do |plan, index|
     puts "#{index}.#{plan[:place]}旅行(#{plan[:price]}円)"
   end
 end
@@ -35,9 +35,9 @@ def select_people_num(selected_plan)
   end
 end
 
-def calculate_price(price, num)
-  total_price = price * num
-  if num >= 5
+def calculate_price(price, people_num)
+  total_price = price * people_num
+  if people_num >= 5
     total_price = (total_price * 0.9).to_i
     puts "5名以上ですので10%割引となります"
   end
